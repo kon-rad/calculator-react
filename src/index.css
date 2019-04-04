@@ -1,7 +1,7 @@
 
 
 /* Coolors Exported Palette - coolors.co/d1bce3-c49bbb-a1867f-585481-19297c */
-
+/*https://coolors.co/d1bce3-c49bbb-a1867f-585481-19297c*/
 :root {
 
   /* RGB */
@@ -63,7 +63,7 @@ code {
   align-items: center;
   justify-content: center;
 }
-.key-Clear {
+.key_CLEAR {
   width: 150px;
 }
 .key:hover {
