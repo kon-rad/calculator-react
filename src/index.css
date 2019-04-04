@@ -1,14 +1,80 @@
+
+
+/* Coolors Exported Palette - coolors.co/d1bce3-c49bbb-a1867f-585481-19297c */
+
+:root {
+
+  /* RGB */
+  --color1: rgba(209, 188, 227, 1);
+  --color2: rgba(196, 155, 187, 1);
+  --color3: rgba(161, 134, 127, 1);
+  --color4: rgba(88, 84, 129, 1);
+  --color5: rgba(25, 41, 124, 1);
+
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color1);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  monospace;
+}
+
+.calculator {
+  background-color: var(--color5);
+  width: 300px;
+  margin: 210px auto 400px;
+  height: 450px;
+  overflow:hidden;
+}
+.display {
+  width: 300px;
+  height: 75px;
+}
+.keyboard {
+  display: grid;
+  grid-template-areas:
+          'top op'
+          'num op';
+}
+.keyboard_numbers {
+  width: 225px;
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: num;
+}
+.key {
+  width: 75px;
+  height: 75px;
+  border: solid 1px var(--color3);
+  background-color: var(--color4);
+  color: var(--color2);
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.key:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+  z-index: 9;
+}
+.top_row {
+  width: 225px;
+  height: 75px;
+  display: flex;
+  grid-area: top;
+}
+.keyboard_operations {
+  width: 75px;
+  grid-area: op;
 }
