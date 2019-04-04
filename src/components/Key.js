@@ -5,7 +5,7 @@ class Key extends Component {
     render() {
 
         return (
-            <div className={`key key-${this.props.keyType}`}>
+            <div className={`key key-${this.props.keyType}`} onClick={() => {this.props.onKeyClick(this.props.keyType)}} >
                 {this.props.keyType}
             </div>
         );

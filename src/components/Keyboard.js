@@ -8,30 +8,29 @@ class Keyboard extends Component {
         return (
             <div className="keyboard">
                 <div className="top_row">
-                    <Key keyType="NULL"/>
-                    <Key keyType="Clear"/>
-                    <Key keyType="Delete"/>
+                    <Key keyType="Clear" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="Delete" onKeyClick={this.props.onKeyClick}/>
                 </div>
                 <div className="keyboard_operations">
-                    <Key keyType="/"/>
-                    <Key keyType="x"/>
-                    <Key keyType="-"/>
-                    <Key keyType="+"/>
-                    <Key keyType="="/>
+                    <Key keyType="/" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="x" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="-" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="+" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="=" onKeyClick={this.props.onKeyClick}/>
                 </div>
                 <div className="keyboard_numbers">
-                    <Key keyType="7"/>
-                    <Key keyType="8"/>
-                    <Key keyType="9"/>
-                    <Key keyType="4"/>
-                    <Key keyType="5"/>
-                    <Key keyType="6"/>
-                    <Key keyType="1"/>
-                    <Key keyType="2"/>
-                    <Key keyType="3"/>
-                    <Key keyType="-"/>
-                    <Key keyType="0"/>
-                    <Key keyType="."/>
+                    <Key keyType="7" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="8" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="9" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="4" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="5" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="6" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="1" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="2" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="3" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="-" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="0" onKeyClick={this.props.onKeyClick}/>
+                    <Key keyType="." onKeyClick={this.props.onKeyClick}/>
                 </div>
             </div>
         );

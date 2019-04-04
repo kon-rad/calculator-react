@@ -63,10 +63,14 @@ code {
   align-items: center;
   justify-content: center;
 }
+.key-Clear {
+  width: 150px;
+}
 .key:hover {
   cursor: pointer;
   box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
-  z-index: 9;
+  z-index: 9999;
+  position: relative;
 }
 .top_row {
   width: 225px;
