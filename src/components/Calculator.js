@@ -111,8 +111,8 @@ class Calculator extends Component {
             } catch (err) {
                 console.log(err);
             }
-            if (result.length > 12) {
-                result = result.substr(0, 12);
+            if (result.length > 11) {
+                result = result.substr(0, 11) + '...';
             }
             this.setState({ displayValue: result });
         } else if (OPERATIONS.hasOwnProperty(key) || NUMBERS.hasOwnProperty(key)) {
