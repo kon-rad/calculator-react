@@ -27,6 +27,16 @@ const EQUALS = '=';
 const CLEAR = 'CLEAR';
 const DELETE = 'DELETE';
 const ERROR = 'ERROR';
+const KEYBAORD_KEYS_MAP = {
+    48: '0',
+    96: '0',
+    49: '1',
+    97: '1',
+    50: '1',
+    106: '*',
+    187: '=',
+    107: '+',
+};
 
 class Calculator extends Component {
     constructor(props) {
@@ -36,20 +46,29 @@ class Calculator extends Component {
         }
     }
 
-    handleClear() {
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyDown);
+    }
+
+    handleKeyDown = (e) => {
+        if (KEYBAORD_KEYS_MAP.hasOwnProperty(e.keyCode)) {
+            this.keyClickHandler(KEYBAORD_KEYS_MAP[e.keyCode]);
+        }
+    };
+
+    handleClear = () => {
         this.setState({
             displayValue: null
         });
-    }
+    };
 
-    handleDelete() {
+    handleDelete = () => {
         if (this.state.displayValue === null) return;
         const newDisplayValue = this.state.displayValue.substr(0, this.state.displayValue.length - 1);
         this.setState({ displayValue: newDisplayValue });
-    }
+    };
 
     keyClickHandler = (key) => {
-        console.log(key);
         if (key === CLEAR) {
             this.handleClear();
         } else if (key === DELETE) {

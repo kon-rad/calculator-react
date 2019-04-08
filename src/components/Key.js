@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Key extends Component {
+function Key(props) {
 
-    render() {
-
-        return (
-            <div
-                className={`key key_${this.props.keyType}`}
-                onClick={() => {this.props.onKeyClick(this.props.keyType)}}
-            >
-                {this.props.keyType}
-            </div>
-        );
-    }
+    return (
+        <div
+            className={`key key_${props.keyType}`}
+            onClick={() => {props.onKeyClick(props.keyType)}}
+        >
+            {props.keyType}
+        </div>
+    );
 }
 
 export default Key;
