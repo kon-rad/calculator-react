@@ -32,10 +32,39 @@ const KEYBAORD_KEYS_MAP = {
     96: '0',
     49: '1',
     97: '1',
-    50: '1',
+    50: '2',
+    98: '2',
+    51: '3',
+    99: '3',
+    52: '4',
+    100: '4',
+    53: '5',
+    101: '5',
+    54: '6',
+    102: '6',
+    55: '7',
+    103: '7',
+    56: '8',
+    104: '8',
+    57: '9',
+    105: '9',
     106: '*',
     187: '=',
+    32: '=',
+    13: '=',
+    189: '-',
+    109: '-',
     107: '+',
+    111: '/',
+    191: '/',
+    110: '.',
+    190: '.',
+    8: DELETE,
+    27: CLEAR
+};
+const SHIFT_KEYS_MAP = {
+    56: '*',
+    187: '+',
 };
 
 class Calculator extends Component {
@@ -51,7 +80,9 @@ class Calculator extends Component {
     }
 
     handleKeyDown = (e) => {
-        if (KEYBAORD_KEYS_MAP.hasOwnProperty(e.keyCode)) {
+        if (e.shiftKey && SHIFT_KEYS_MAP.hasOwnProperty(e.keyCode)) {
+            this.keyClickHandler(SHIFT_KEYS_MAP[e.keyCode]);
+        } else if (KEYBAORD_KEYS_MAP.hasOwnProperty(e.keyCode)) {
             this.keyClickHandler(KEYBAORD_KEYS_MAP[e.keyCode]);
         }
     };
@@ -80,8 +111,8 @@ class Calculator extends Component {
             } catch (err) {
                 console.log(err);
             }
-            if (result.length > 8) {
-                result = result.substr(0, 8);
+            if (result.length > 12) {
+                result = result.substr(0, 12);
             }
             this.setState({ displayValue: result });
         } else if (OPERATIONS.hasOwnProperty(key) || NUMBERS.hasOwnProperty(key)) {
