@@ -4,64 +4,85 @@ import Key from './Key';
 
 const OPERATIONS = {
     '/': 'Divide',
-    'x': 'Multiply',
+    '*': 'Multiply',
     '-': 'Subtract',
-    '+': 'Add',
-    '=': 'Equals'
+    '+': 'Add'
 };
+
+const NUMBERS = {
+    '1': true,
+    '2': true,
+    '3': true,
+    '4': true,
+    '5': true,
+    '6': true,
+    '7': true,
+    '8': true,
+    '9': true,
+    '0': true,
+    '.': true
+};
+
+const EQUALS = '=';
+const CLEAR = 'CLEAR';
+const DELETE = 'DELETE';
+const ERROR = 'ERROR';
 
 class Calculator extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstDigit: null,
-            secondDigit: null,
-            operation: null,
             displayValue: null
         }
     }
 
     handleClear() {
-
+        this.setState({
+            displayValue: null
+        });
     }
 
     handleDelete() {
-
-    }
-
-    handleOperationAdd(key) {
-
-    }
-
-    handleNewNumber(key) {
-
+        if (this.state.displayValue === null) return;
+        const newDisplayValue = this.state.displayValue.substr(0, this.state.displayValue.length - 1);
+        this.setState({ displayValue: newDisplayValue });
     }
 
     keyClickHandler = (key) => {
         console.log(key);
-        if (key === 'CLEAR') {
+        if (key === CLEAR) {
             this.handleClear();
-        } else if (key === 'DELETE') {
+        } else if (key === DELETE) {
             this.handleDelete();
-        } else if (OPERATIONS.hasOwnProperty(key)) {
-            this.handleOperationAdd(key);
-        } else {
-            this.handleNewNumber(key);
+        } else if (key === EQUALS) {
+            let result = ERROR;
+            try {
+                result = eval(this.state.displayValue) + '';
+            } catch (err) {
+                console.log(err);
+            }
+            if (result.length > 8) {
+                result = result.substr(0, 8);
+            }
+            this.setState({ displayValue: result });
+        } else if (OPERATIONS.hasOwnProperty(key) || NUMBERS.hasOwnProperty(key)) {
+            const newDisplayValue = (this.state.displayValue || '') + key;
+            this.setState({ displayValue: newDisplayValue });
         }
     };
 
     render() {
         return (
             <div className="calculator z-depth-5">
-                <Display displayValue={this.displayValue}/>
+                <Display displayValue={this.state.displayValue}/>
                 <div className="keyboard">
                     <div className="top_row">
-                        <Key keyType="CLEAR" onKeyClick={this.keyClickHandler}/>
-                        <Key keyType="DELETE" onKeyClick={this.keyClickHandler}/>
+                        <Key keyType={CLEAR} onKeyClick={this.keyClickHandler}/>
+                        <Key keyType={DELETE} onKeyClick={this.keyClickHandler}/>
                     </div>
                     <div className="keyboard_operations">
                         <Key keyType="/" onKeyClick={this.keyClickHandler}/>
-                        <Key keyType="x" onKeyClick={this.keyClickHandler}/>
+                        <Key keyType="*" onKeyClick={this.keyClickHandler}/>
                         <Key keyType="-" onKeyClick={this.keyClickHandler}/>
                         <Key keyType="+" onKeyClick={this.keyClickHandler}/>
                         <Key keyType="=" onKeyClick={this.keyClickHandler}/>

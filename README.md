@@ -1,5 +1,5 @@
 
 
-## Calculatr 
+## Calculator built with React 
 
 

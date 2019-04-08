@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Display extends Component {
-    render() {
-        return (
-            <div className="display">
-                <span className="display_text"></span>
-            </div>
-        );
-    }
+function Display(props){
+    return (
+        <div className="display">
+            <span className="display_text">{props.displayValue}</span>
+        </div>
+    );
 }
 
 export default Display;
