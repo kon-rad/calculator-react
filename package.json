@@ -19,7 +19,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "http://kon-rad.github.io/calculator-react",
+  "homepage": "http://kon-rad.github.io/calculator-react.git",
   "browserslist": [
     ">0.2%",
     "not dead",
